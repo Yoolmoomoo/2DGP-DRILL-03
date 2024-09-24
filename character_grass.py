@@ -28,6 +28,29 @@ def run_left():
     for y in range(0, 560, 10):
         draw_boy(0, y)
     pass
+def modify_x(x, offset):
+    X = x
+    X += offset
+    return X
+    pass
+def modify_y(y, offset):
+    Y = y
+    Y += offset
+    return Y
+    pass
+def run_right_hatch():
+    for a in range (10, 410, 10):
+        X = modify_x(400, a)
+        Y = modify_y(690, -(a + 170))
+        draw_boy(X, Y)
+
+    pass
+def run_left_hatch():
+    for a in range (10, 410, 10):
+        X = modify_x(0, a)
+        Y = modify_y(0, a + 170)
+        draw_boy(X, Y)
+    pass
 
 def run_rectangle():
     run_top()
@@ -48,11 +71,14 @@ def run_circle():
     pass
 
 def run_triangle():
+    run_bottom()
+    run_left_hatch()
+    run_right_hatch()
     pass
 
 while True:
-    run_circle()
-    run_rectangle()
+    # run_circle()
+    # run_rectangle()
     run_triangle()
 
 close_canvas()
